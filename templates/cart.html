@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Royal Clothes</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="{% static 'Images/logo.png' <n}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- NAVIGATION -->
+	<div class="navigation-container">
+		<div class="left-navigation">
+			<ul>
+				<li><a href="{% url 'index' %}">Shop</a></li>
+			</ul>
+		</div>
+		<div class="logo-container">
+			{% load static %}
+			<img class="logo" src="{% static 'Images/logo.png' %}"></img><br>
+			<p>Royal Clothing</p>
+		</div>
+		<div class="right-navigation">
+			<ul>
+				<li><a href="#" class="src"><i class="fa fa-search"></i></a></li>
+				<li><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- MAIN -->
+	<div class="cart-main">
+		<div class="cart-title"><h1>Cart</h1></div>
+		<div class="cart-table-holder">
+			<!-- HEADER OF CART TABLE -->
+			<div class="cart-row cart-header">
+				<div class="cart-left">
+					<span>Artikal</span>
+				</div>
+				<div class="cart-right">
+					<div>Cijena</div>
+					<div>Velicina</div>
+					<div>Opcije</div>
+				</div>
+			</div>
+			<!-- ACTUAL TABLE ROW -->
+			<div class="cart-row">
+				<div class="cart-left">
+					<img src="{% static 'Images/logo.png' %}" style="height: 80px;">
+					<p><a href="#">Majica kratkih rukava Nikeeeee</a></p>
+				</div>
+				<div class="cart-right">
+					<div>49.99 BAM</div>
+					<div>XL</div>
+					<a style="font-size: 17" href="#">Ukloni</a>
+				</div>
+			</div>
+			<!-- FOOTER OF THE CART TABLE -->
+			<div class="cart-row cart-footer">
+				<div class="cart-left">
+					<span>Broj artikala: 15</span>
+				</div>
+				<div class="cart-right">
+					<div>Ukupno: 99999.99 BAM</div>
+					<div></div>
+					<div><button>Naruci</button></div>
+				</div>
+			</div>
+		</div>
+		<!-- FOOTER -->
+		<!-- FOOTER -->
+	<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<div class="logo-container">
+					<img class="logo" src="{% static 'Images/logo.png' %}"></img><br>
+					<p>Royal Clothing</p>
+				</div>
+
+				<p class="footer-company-name">Royal Clothing © 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1.555.555.5555</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+	</div>
+</body>
+</html>

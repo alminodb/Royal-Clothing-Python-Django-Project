@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Royal Clothes</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="{% static 'Images/logo.png' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<!-- HEADER/NAVIGATION -->
+	<div class="navigation-container">
+		<div class="left-navigation">
+			<ul>
+				<li><a href="{% url 'index' %}">Shop</a></li>
+			</ul>
+		</div>
+		<div class="logo-container">
+			<img class="logo" src="{% static 'Images/logo.png' %}"></img><br>
+			<p>Royal Clothing</p>
+		</div>
+		<div class="right-navigation">
+			<ul>
+				<li><a href="#" class="src"><i class="fa fa-search"></i></a></li>
+				<li><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- MAIN -->
+	<div class="main-container">
+		<div class="details-pictures">
+			<div class="img-container">
+				{% if images %}
+					{% for image in images %}
+						{% if product.id == image.product.id %}
+							<img src="{{ image.image }}">{{ image.image }}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+		<div class="details">
+			<div class="details-title">
+				<h2>{{ product.name }}</h2>
+			</div>
+			<div class="details-price">
+				<p><span>{{ product.price }}</span> BAM</p>
+			</div>
+			<div class="details-size">
+				<span>Velicina:</span>
+				<ul>
+					{% for x in sizes %}
+						{% if x.product.name == product.name %}
+							{% if x.size.name == size %}
+								<li style="border-color: #d7b759;">
+									<a href="{% url 'details' id=x.product.id size=x.size.name %}">{{ x.size.name }}</a>
+								</li>
+							{% else %}
+								<li>
+									<a href="{% url 'details' id=x.product.id size=x.size.name %}">{{ x.size.name }}</a>
+								</li>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="details-stock" style="
+				margin-top: 20px;
+			">
+				<p>Dostupno:  {{ product.stock }}</p>
+			</div>
+			<button class="addtocart">Add to cart</button>
+		</div>
+	<!-- FOOTER -->
+	<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<div class="logo-container">
+					<img class="logo" src="{% static 'Images/logo.png' %}"></img><br>
+					<p>Royal Clothing</p>
+				</div>
+
+				<p class="footer-company-name">Royal Clothing © 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1.555.555.5555</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+</body>
+</html>
+
+<script>
+	var navbar_height = $('.navigation-container').height();
+	$('.details').css({
+		'top' : navbar_height
+	});
+	$(window).on('scroll', function(){
+		if($(window).scrollTop() >= navbar_height){
+			$('.details').css({
+				'top' : '0px',
+				'position' : 'fixed'
+			});
+		}
+		else{
+			$('.details').css({
+				'position' : 'absolute',
+				'top' : navbar_height
+			});
+		}
+	});
+
+</script>

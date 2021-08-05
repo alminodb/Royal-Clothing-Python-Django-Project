@@ -1,0 +1,20 @@
+{% block head %}
+	<div class="navigation-container">
+		<div class="left-navigation">
+			<ul>
+				<li><a href="#">Shop</a></li>
+			</ul>
+		</div>
+		<div class="logo-container">
+			{% load static %}
+			<img class="logo" src="{% static 'Images/logo.png' %}"></img><br>
+			<p>Royal Clothing</p>
+		</div>
+		<div class="right-navigation">
+			<ul>
+				<li><a href="#" class="src"><i class="fa fa-search"></i></a></li>
+				<li><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i></a></li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
